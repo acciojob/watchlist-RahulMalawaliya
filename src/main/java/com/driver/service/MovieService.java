@@ -25,4 +25,10 @@ public class MovieService {
 		
 	}
 
+	public void addmoviedirectorpair(String movie, String director) {
+		// TODO Auto-generated method stub
+		rep.addmoviedirecterpair(movie,director);
+		
+	}
+
 }
