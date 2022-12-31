@@ -1,5 +1,6 @@
 package com.driver.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,11 +24,11 @@ public class MovieRepository {
 
 	public MovieRepository() {
 		
-		movies =new HashMap<String,Movie>();
+		this.movies =new HashMap<String,Movie>();
 		
-		director=new HashMap<String,Director>();
+		this.director=new HashMap<String,Director>();
 		
-		directormoviemapping=new HashMap<String,List<String>>();
+		this.directormoviemapping=new HashMap<String,List<String>>();
 	}
 	public void addmovie(Movie movie) {
 		// TODO Auto-generated method stub
@@ -36,6 +37,15 @@ public class MovieRepository {
 	public void adddirector(Director director2) {
 		// TODO Auto-generated method stub
 		director.put(director2.getName(), director2);
+		
+	}
+	public void addmoviedirecterpair(String movie, String director2) {
+		// TODO Auto-generated method stub
+		if(movies.containsKey(movie)&&director.containsKey(director2))
+		{
+			List<String> movielist=new ArrayList<>();
+			if()
+		}
 		
 	}
 	
