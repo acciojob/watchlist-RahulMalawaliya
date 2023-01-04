@@ -1,8 +1,12 @@
 package com.driver.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +41,7 @@ public class MovieController {
 		return new ResponseEntity<>("director added succsesfully",HttpStatus.ACCEPTED);
 	}
 	
-	@PutMapping("/add-mdpair")
+	@PutMapping("/add-movie-director-pair")
 	public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie")String movie , @RequestParam("Director") String director)
 	{
 		
@@ -46,6 +50,45 @@ public class MovieController {
 		
 	}
 	
+	@GetMapping("/get-movie-by-name")
+	public Movie getMovieByName(@RequestParam String movie)
+	{
+		return service.getMovieByName(movie);
+	}
+	
+	@GetMapping("/get-director-by-name")
+	public Director getDirectorByName(@RequestParam String director)
+	{
+		return service.getDirectorByName(director);
+	}
+	
+	@GetMapping("/get-movies-by-director-name")
+	public List<String> getMoviesByDirectorName(@RequestParam String director)
+	{
+		return service.getMoviesByDirectorName(director);
+	}
+	
+	@GetMapping("/get-all-movies")
+	public List<String> findAllMovies()
+	{
+		return service.findAllMovies();
+	}
+	
+	
+	@DeleteMapping("/delete-director-by-name")
+	public ResponseEntity<String> deleteDirectorByName(@RequestParam String director)
+	{
+		service.deleteDirectorByName(director);
+		return new ResponseEntity<>("gotchaa",HttpStatus.ACCEPTED);
+		
+	}
+	
+	@DeleteMapping("delete-all-directors")
+	public ResponseEntity<String> deleteAllDirectors()
+	{
+		service.deleteAllDirectors();
+		return new ResponseEntity<String>("chale gaye director to",HttpStatus.ACCEPTED);
+	}
 	
 	
 

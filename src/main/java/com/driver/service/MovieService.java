@@ -1,5 +1,7 @@
 package com.driver.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,37 @@ public class MovieService {
 	public void addmoviedirectorpair(String movie, String director) {
 		// TODO Auto-generated method stub
 		rep.addmoviedirecterpair(movie,director);
+		
+	}
+
+	public Movie getMovieByName(String movie) {
+		// TODO Auto-generated method stub
+		return rep.getMovieByName(movie);
+	}
+
+	public Director getDirectorByName(String director) {
+		// TODO Auto-generated method stub
+		return rep.getDirectorByName(director);
+	}
+
+	public List<String> getMoviesByDirectorName(String director) {
+		// TODO Auto-generated method stub
+		return rep.getMoviesByDirectorName(director);
+	}
+
+	public List<String> findAllMovies() {
+		// TODO Auto-generated method stub
+		return rep.findAllMovies();
+	}
+
+	public void deleteDirectorByName(String director2) {
+		// TODO Auto-generated method stub
+		rep.deleteDirectorByName(director2);
+	}
+
+	public void deleteAllDirectors() {
+		// TODO Auto-generated method stub
+		rep.deleteAllDirectors();
 		
 	}
 
