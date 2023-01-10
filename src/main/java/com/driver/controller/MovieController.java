@@ -89,6 +89,16 @@ public class MovieController {
 		service.deleteAllDirectors();
 		return new ResponseEntity<String>("chale gaye director to",HttpStatus.ACCEPTED);
 	}
+	@GetMapping("getpairhashmap")
+	public List<String> getpair()
+	{
+		return service.getpair();
+	}
+	@GetMapping("getlist")
+	public List<List<String>> getlist()
+	{
+		return service.getlist();
+	}
 	
 	
 

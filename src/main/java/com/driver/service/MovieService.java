@@ -64,4 +64,14 @@ public class MovieService {
 		
 	}
 
+	public List<String> getpair() {
+		// TODO Auto-generated method stub
+		return rep.getpair();
+	}
+
+	public List<List<String>> getlist() {
+		// TODO Auto-generated method stub
+		return rep.getlistofstring();
+	}
+
 }

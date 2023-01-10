@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class MovieRepository {
 	
@@ -42,12 +43,14 @@ public class MovieRepository {
 	
 	public void addmoviedirecterpair(String movie, String director2) {
 		// TODO Auto-generated method stub
-		if(movies.containsKey(movie)&& director.containsKey(director2)){
+		if(movies.containsKey(movie) && director.containsKey(director2)){
 
             List<String> currentMoviesByDirector = new ArrayList<>();
 
             if(directormoviemapping.containsKey(director2))
+            {
             currentMoviesByDirector = directormoviemapping.get(director2);
+            }
 
             currentMoviesByDirector.add(movie);
 
@@ -84,7 +87,6 @@ public class MovieRepository {
 	}
 	
 	public void deleteDirectorByName(String director) {
-		// TODO Auto-generated method stub
 		List<String> movies = new ArrayList<String>();
         if(directormoviemapping.containsKey(director)){
             //1. Find the movie names by director from the pair
@@ -93,11 +95,11 @@ public class MovieRepository {
             //2. Deleting all the movies from movieDb by using movieName
             for(String movie: movies){
                 if(this.movies.containsKey(movie)){
-                    movies.remove(movie);
+                    this.movies.remove(movie);
                 }
             }
 
-            //3. Deleteing the pair
+            //3. Delete the pair
             directormoviemapping.remove(director);
         }
 
@@ -133,6 +135,24 @@ public class MovieRepository {
         //clearing the pair.
         directormoviemapping = new HashMap<>();
 		
+	}
+	public List<String>getpair() {
+		// TODO Auto-generated method stub
+		List<String> list=new ArrayList<>(); 
+		for(String s:directormoviemapping.keySet())
+		{
+			list.add(s);
+		}
+		return list;
+	}
+	public List<List<String>> getlistofstring() {
+		// TODO Auto-generated method stub
+		List<List<String>> list=new ArrayList<>();
+		for(List<String> s: directormoviemapping.values())
+		{
+			list.add(s);
+		}
+		return list;
 	}
 	
 
