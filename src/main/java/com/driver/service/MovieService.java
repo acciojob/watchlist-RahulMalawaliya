@@ -13,65 +13,41 @@ import com.driver.repository.MovieRepository;
 public class MovieService {
 	
 	@Autowired
-	MovieRepository rep;
+    MovieRepository movieRepository;
 
-	public void addmovie(Movie movie) {
-		// TODO Auto-generated method stub
-		rep.addmovie(movie);
-		
-	}
+    public void addMovie(Movie movie){
+        movieRepository.saveMovie(movie);
+    }
 
-	public void adddirector(Director director) {
-		// TODO Auto-generated method stub
-		rep.adddirector(director);
-		
-	}
+    public void addDirector(Director director){
+        movieRepository.saveDirector(director);
+    }
 
-	public void addmoviedirectorpair(String movie, String director) {
-		// TODO Auto-generated method stub
-		rep.addmoviedirecterpair(movie,director);
-		
-	}
+    public void createMovieDirectorPair(String movie, String director){
+        movieRepository.saveMovieDirectorPair(movie, director);
+    }
 
-	public Movie getMovieByName(String movie) {
-		// TODO Auto-generated method stub
-		return rep.getMovieByName(movie);
-	}
+    public Movie findMovie(String movieName){
+        return movieRepository.findMovie(movieName);
+    }
 
-	public Director getDirectorByName(String director) {
-		// TODO Auto-generated method stub
-		return rep.getDirectorByName(director);
-	}
+    public Director findDirector(String directorName){
+        return movieRepository.findDirector(directorName);
+    }
 
-	public List<String> getMoviesByDirectorName(String director) {
-		// TODO Auto-generated method stub
-		return rep.getMoviesByDirectorName(director);
-	}
+    public List<String> findMoviesFromDirector(String director){
+        return movieRepository.findMoviesFromDirector(director);
+    }
 
-	public List<String> findAllMovies() {
-		// TODO Auto-generated method stub
-		return rep.findAllMovies();
-	}
+    public List<String> findAllMovies(){
+        return movieRepository.findAllMovies();
+    }
 
-	public void deleteDirectorByName(String director2) {
-		// TODO Auto-generated method stub
-		rep.deleteDirectorByName(director2);
-	}
+    public void deleteDirector(String director){
+        movieRepository.deleteDirector(director);
+    }
 
-	public void deleteAllDirectors() {
-		// TODO Auto-generated method stub
-		rep.deleteAllDirectors();
-		
-	}
-
-	public List<String> getpair() {
-		// TODO Auto-generated method stub
-		return rep.getpair();
-	}
-
-	public List<List<String>> getlist() {
-		// TODO Auto-generated method stub
-		return rep.getlistofstring();
-	}
-
+    public void deleteAllDirectors(){
+        movieRepository.deleteAllDirector();
+    }
 }
