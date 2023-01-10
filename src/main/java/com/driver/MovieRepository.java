@@ -1,4 +1,4 @@
-package com.driver.repository;
+package com.driver;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.driver.repository;
+package com.driver;
 
 public class Director {
 	

@@ -1,13 +1,9 @@
-package com.driver.service;
+package com.driver;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.driver.repository.Director;
-import com.driver.repository.Movie;
-import com.driver.repository.MovieRepository;
 
 @Service
 public class MovieService {
